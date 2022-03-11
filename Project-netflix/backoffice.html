@@ -58,18 +58,123 @@
         <h1 class="text-center my-5">Backoffice</h1>
 
         <div class="d-flex flex-column mx-auto d-inline-block" style="width: 50%;">
-            <label>Name</label>
-            <input type="text">
-            <label>Description</label>
-            <input type="text">
-            <label>Category</label>
-            <input type="text">
-            <label>ImageURL</label>
-            <input type="text">
-            <button type="submit" class="btn btn-primary mt-3">Add new movie</button>
-            <button type="submit" class="btn btn-danger mt-3">Delete movie</button>
+            <form class="d-flex flex-column" onsubmit="handleSubmit(event)">
+                <label>Category</label>
+                <input type='text' id='category'>
+                <label>Description</label>
+                <input type="text" id='description'>
+                <label>ImageURL</label>
+                <input type="text" id='imageURL'>
+                <label>Name</label>
+                <input type="text" id='name'>
+                <button type="submit" class="btn btn-primary mt-3" id="form-button">Add new movie</button>
+                <button type="button" class="btn btn-danger mt-3 d-none" id="delete-button"
+                    onclick="handleDelete()">Delete movie</button>
+            </form>
         </div>
     </main>
+
+    <script>
+        const movieCategory = document.getElementById('category')
+        const movieDescription = document.getElementById('description')
+        const movieImage = document.getElementById('imageURL')
+        const movieName = document.getElementById('name')
+
+        const movieID = (new URLSearchParams(window.location.search)).get('id')
+
+        const formButton = document.getElementById('form-button')
+        const deleteButton = document.getElementById('delete-button')
+
+        window.onload = async () =>
+        {
+            if (movieID)
+            {
+                try
+                {
+                    const response = await fetch('https://striveschool-api.herokuapp.com/api/movies/' + movieID, {
+                        headers: {
+                            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjA3YTRlYTdiMTAwMTVkMDY3YWIiLCJpYXQiOjE2NDcwMDA0MzEsImV4cCI6MTY0ODIxMDAzMX0.eU0TYKPdFYRlk_xDJHo5xaihakOVpQhJqx_UberrqTU"
+                        }
+                    })
+
+                    const data = await response.json()
+
+                    movieCategory.value = data.category
+                    movieDescription.value = data.description
+                    movieImage.value = data.imageUrl
+                    movieName.value = data.name
+
+                    formButton.innerText = update
+                    deleteButton.classList.remove('d-none')
+
+                } catch (error)
+                {
+                    console.log('error with fetching')
+                }
+            }
+        }
+
+        async function handleSubmit(e)
+        {
+            e.preventDefault()
+
+            const bodyObject = {
+                category: movieCategory.value,
+                description: movieDescription.value,
+                imageUrl: movieImage.value,
+                name: movieName.value,
+            }
+
+            const body = JSON.stringify(bodyObject)
+
+            const endpoint = movieID ? "https://striveschool-api.herokuapp.com/api/movies/" + movieID : "https://striveschool-api.herokuapp.com/api/movies/"
+
+            const method = movieID ? 'PUT' : 'POST'
+
+            const response = await fetch(endpoint, {
+                method: method,
+                headers: {
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjA3YTRlYTdiMTAwMTVkMDY3YWIiLCJpYXQiOjE2NDcwMDA0MzEsImV4cCI6MTY0ODIxMDAzMX0.eU0TYKPdFYRlk_xDJHo5xaihakOVpQhJqx_UberrqTU",
+                    "Content-Type": "application/json"
+                },
+                body: body
+            })
+
+            if (response.ok)
+            {
+                const data = await response.json()
+                console.log(data)
+                alert('new movie successfully added')
+                window.location.href = '/strive-homework-M3D10/Project-netflix/indexM2D6.html'
+            } else
+            {
+                alert('something went wrong with response')
+            }
+        }
+
+        async function handleDelete()
+        {
+            if (confirm('Are you sure you want to delete this movie?'))
+            {
+                const response = await fetch("https://striveschool-api.herokuapp.com/api/movies//" + movieID, {
+                    method: 'DELETE',
+                    headers: {
+                        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjA3YTRlYTdiMTAwMTVkMDY3YWIiLCJpYXQiOjE2NDcwMDA0MzEsImV4cCI6MTY0ODIxMDAzMX0.eU0TYKPdFYRlk_xDJHo5xaihakOVpQhJqx_UberrqTU",
+                        "Content-Type": "application/json"
+                    },
+                })
+                if (response.ok)
+                {
+                    alert('The movie was successfully deleted')
+                } else
+                {
+                    alert('Someting went wrong. Please try again')
+                }
+            }
+        }
+
+
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
