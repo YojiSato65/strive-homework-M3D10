@@ -1,0 +1,59 @@
+:root {
+    --home-bg-color: #000;
+    --account-bg-color:#f3f3f3;
+    --text-color:#fff;
+    --primary-color:#e40a13;
+    --secondary-color:#929292;
+    
+  }
+
+
+
+body{
+    background: var(--home-bg-color);
+}  
+
+.btn{
+    border-radius:0;
+}
+
+.btn btn-outline-secondary btn-outline-secondary {
+    padding: 0.1rem 1rem 
+}
+
+
+ #logo{
+    height:48px;
+}
+
+#avatar{
+    height:36px;
+}
+#avatar-small{
+    height:24px;
+    margin-right:10px;
+}
+.dropdown-menu {
+    margin-left:-100px;
+    background-color: var(--home-bg-color);
+}
+
+.dropdown-menu  a{
+   font-size:12px;
+}
+
+.Genre{
+    padding:1em;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: space-between;
+}
+
+
+button.btn.btn-outline-light.dropdown-toggle.genre-button {
+    margin-left: 40px;
+ }

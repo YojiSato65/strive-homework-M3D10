@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <title>backoffice</title>
+
+    <style>
+        /* styling for M3D10, otherwise on the external file */
+        body {
+            color: rgb(216, 216, 216);
+        }
+
+        label {
+            margin-bottom: none;
+        }
+
+        input {
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark text-white">
+        <div class="container-fluid px-0">
+            <a class="navbar-brand" href="#">
+                <img src="./Assets/netflix_logo.png" id="logo">
+            </a>
+            <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/strive-homework-M3D10/Project-netflix/indexM2D6.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-secondary"
+                            href="./strive-homework-M3D10/Project-netflix/backoffce.html">Backoffice</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="text-center my-5">Backoffice</h1>
+
+        <div class="d-flex flex-column mx-auto d-inline-block" style="width: 50%;">
+            <label>Name</label>
+            <input type="text">
+            <label>Description</label>
+            <input type="text">
+            <label>Category</label>
+            <input type="text">
+            <label>ImageURL</label>
+            <input type="text">
+            <button type="submit" class="btn btn-primary mt-3">Add new movie</button>
+            <button type="submit" class="btn btn-danger mt-3">Delete movie</button>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
