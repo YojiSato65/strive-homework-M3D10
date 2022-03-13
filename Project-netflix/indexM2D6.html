@@ -126,67 +126,67 @@
   <div class="container-fluid py-2 text-white" id="category-wrapper">
     <!-- <h4 class="mb-2">Trending now</h4> -->
   </div>
-  <div class="row no-gutter" id="movie-row">
+  <div class="row no-gutter">
   </div>
 
 
   <!-- <div class="container-fluid py-2 text-white">
-      <h4 class="mb-2">New Releases</h4>
-      <div id="carouselExampleControlsNoTouching2" class="carousel slide pb-4" data-bs-touch="false"
-        data-bs-interval="false">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row row-cols-1 row-cols-md-6">
-              <div class="col-sm-6 col-md-4 col-lg-2 px-0">
-                <div class="card h-100">
-                  <img src="./Assets/assets/media/media24.jpg" class="card-img-top" alt="...">
-                </div>
+    <h4 class="mb-2">New Releases</h4>
+    <div id="carouselExampleControlsNoTouching2" class="carousel slide pb-4" data-bs-touch="false"
+      data-bs-interval="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row row-cols-1 row-cols-md-6">
+            <div class="col-sm-6 col-md-4 col-lg-2 px-0">
+              <div class="card h-100">
+                <img src="./Assets/assets/media/media24.jpg" class="card-img-top" alt="...">
               </div>
-              <div class="col-sm-6 col-md-4 col-lg-2 px-0">
-                <div class="card h-100">
-                  <img src="./Assets/assets/media/media25.webp" class="card-img-top" alt="...">
-                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 px-0">
+              <div class="card h-100">
+                <img src="./Assets/assets/media/media25.webp" class="card-img-top" alt="...">
               </div>
-              <div class="col-sm-6 col-md-4 col-lg-2 px-0">
-                <div class="card h-100">
-                  <img src="./Assets/assets/media/media26.webp" class="card-img-top" alt="...">
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 px-0">
+              <div class="card h-100">
+                <img src="./Assets/assets/media/media26.webp" class="card-img-top" alt="...">
 
-                </div>
               </div>
-              <div class="col-sm-6 col-md-4 col-lg-2 px-0">
-                <div class="card h-100">
-                  <img src="./Assets/assets/media/media27.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 px-0">
+              <div class="card h-100">
+                <img src="./Assets/assets/media/media27.jpg" class="card-img-top" alt="...">
 
-                </div>
               </div>
-              <div class="col-sm-6 col-md-4 col-lg-2 px-0">
-                <div class="card h-100">
-                  <img src="./Assets/assets/media/media28.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 px-0">
+              <div class="card h-100">
+                <img src="./Assets/assets/media/media28.jpg" class="card-img-top" alt="...">
 
-                </div>
               </div>
-              <div class="col-sm-6 col-md-4 col-lg-2 px-0">
-                <div class="card h-100">
-                  <img src="./Assets/assets/media/media29.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 px-0">
+              <div class="card h-100">
+                <img src="./Assets/assets/media/media29.jpg" class="card-img-top" alt="...">
 
-                </div>
               </div>
             </div>
           </div>
-          
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching2"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching2"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-          </button>
         </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching2"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching2"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden"></span>
+        </button>
       </div>
-    </div> -->
+    </div>
+  </div> -->
 
   <div class="container">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -280,73 +280,7 @@
       </div>
   </div>
 
-  <script>
-    const categoryWrapper = document.getElementById('category-wrapper')
-    const movieRow = document.getElementById('movie-row')
-
-    const endpoint = "https://striveschool-api.herokuapp.com/api/movies/"
-
-
-    window.onload = () =>
-    {
-      fetchMovies()
-      displayMovies()
-    }
-
-    async function fetchMovies()
-    {
-      try
-      {
-        const response = await fetch(endpoint, {
-          headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjA3YTRlYTdiMTAwMTVkMDY3YWIiLCJpYXQiOjE2NDcwMDA0MzEsImV4cCI6MTY0ODIxMDAzMX0.eU0TYKPdFYRlk_xDJHo5xaihakOVpQhJqx_UberrqTU"
-          }
-        })
-        const data = await response.json()
-        console.log(data)
-        categoryWrapper.innerHTML = data.map(category => `
-        <h4 class="mb-2 d-block">${category}</h4>
-        <!-- <ul>
-          <li>${category}</li>
-        </ul> -->
-        `).join('')
-
-
-
-        try
-        {
-          const response = await fetch('https://striveschool-api.herokuapp.com/api/movies/horror/', {
-            headers: {
-              "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjA3YTRlYTdiMTAwMTVkMDY3YWIiLCJpYXQiOjE2NDcwMDA0MzEsImV4cCI6MTY0ODIxMDAzMX0.eU0TYKPdFYRlk_xDJHo5xaihakOVpQhJqx_UberrqTU"
-            }
-          })
-          const data = await response.json()
-          console.log(data)
-
-          movieRow.innerHTML = data.map(movie => `
-          
-          <div class="col-sm-6 col-md-4 col-lg-2 px-1">
-            <div class="card h-100">
-              <a href='/strive-homework-M3D10/Project-netflix/backoffice.html?id=${movie._id}'><img src="${movie.imageUrl}" class="card-img-top" alt="movie-img"></a>
-            </div>
-          </div>
-          `).join('')
-        }
-
-        catch (error)
-        {
-          console.log('something went wrong with displaying movies')
-        }
-
-      }
-      catch (error)
-      {
-        console.log('something went wrong with fetching category')
-      }
-    }
-
-
-  </script>
+  <script src="M3D10.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
